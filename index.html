@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crazy Raccoon — Overwatch Roster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Archivo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Nav -->
+<header class="nav">
+  <a href="#top" class="brand">CRAZY RACCOON</a>
+  <nav class="menu">
+    <a href="#about">About</a>
+    <a href="#stats">Titles</a>
+    <a href="#roster">Roster</a>
+    <a href="#highlights">Highlights</a>
+  </nav>
+</header>
+
+  <!-- HERO: orbit lines + logo in the right corner (no blob) -->
+  <section id="top" class="hero">
+    <!-- orbit lines -->
+    <svg class="orbits" viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="#0d0d0d" stroke-opacity=".45" stroke-width="2">
+        <ellipse cx="1120" cy="580" rx="850" ry="340"/>
+        <ellipse cx="1120" cy="580" rx="700" ry="280"/>
+        <ellipse cx="1120" cy="580" rx="540" ry="220"/>
+      </g>
+    </svg>
+
+    <!-- logo as part of the background -->
+    <img
+      class="hero__logo"
+      src="https://owcdn.net/img/654cc95339f53.png"
+      alt="Crazy Raccoon logo" />
+
+    <div class="hero__inner">
+      <h1 class="headline">
+        A NO–LIMITS<br/>
+        <span>OWCS TEAM</span>
+      </h1>
+      <p class="sub">Crazy Raccoon — Asia’s powerhouse roster.</p>
+    </div>
+  </section>
+
+  <!-- Faux anchors to mirror inspo nav (optional) -->
+  <div id="work"></div><div id="services"></div><div id="news"></div><div id="contact"></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2 class="eyebrow">About</h2>
+    <p class="copy">
+      Crazy Raccoon entered Overwatch in <strong>April 2024</strong> by signing the free-agent roster “WAC.” The lineup features
+      <strong>LIP</strong> & <strong>HeeSang</strong> (DPS), <strong>JunBin</strong> & <strong>MAX</strong> (Tank), and the support duo
+      <strong>CH0R0NG</strong> and <strong>Shu</strong>. They quickly claimed high-profile titles and continued winning through 2025. 
+      Crazy Raccoon went undefeated in maps through the OWCS Asia Stage 2 Korea Regular Season, emerging as the undisputed first seed for the Playoffs. Many analysts considered them nearly unbeatable, especially after their rivals Team Falcons took several losses in the season.
+    </p>
+  </section>
+
+  <!-- TEAM TOTALS -->
+  <section id="stats" class="section">
+    <h2 class="eyebrow">Totals & Titles</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__label">Total Winnings</div>
+        <div id="totalWinnings" class="stat__value">$—</div>
+        <div class="stat__hint">Sum of listed 2024–2025 events</div>
+      </div>
+      <ul class="titles">
+        <li>Esports World Cup 2024 — <b>Champions</b></li>
+        <li>OCS 2024 Major — <b>Champions</b></li>
+        <li>OCS 2025 Champions Clash — <b>Champions</b></li>
+        <li>Multiple OCS Korea Stages — <b>Champions</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ROSTER -->
+  <section id="roster" class="section">
+    <h2 class="eyebrow">Roster</h2>
+    <div id="rosterGrid" class="grid"></div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights" class="section">
+    <h2 class="eyebrow">Highlight Video</h2>
+    <div class="videoWrap">
+    <iframe
+    class="video"
+    src="https://www.youtube.com/embed/A01I1zJCvU0?si=x0Q0sR2rSySoMIA8&enablejsapi=1&origin=http://127.0.0.1:5500"
+    title="Crazy Raccoon Highlights"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+    </iframe>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> Crazy Raccoon (Fan Site)
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
