@@ -43,7 +43,7 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
 .hero{position:relative;min-height:78vh;display:grid;place-items:center;overflow:hidden}
 .orbits{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero__logo{
-  position:absolute;top:100px;right:min(150px,3vw);
+  position:absolute;top:150px;right:min(150px,3vw);
   width:clamp(120px,18vw,260px);height:auto;z-index:0;opacity:.95;
   filter: drop-shadow(0 8px 18px rgba(0,0,0,.15));
   user-select:none;pointer-events:none;
@@ -54,7 +54,7 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
 .sub{max-width:680px;color:var(--muted);font-size:1.05rem}
 
 /* Sections, Stats, Roster, Video, Footer (unchanged) */
-.section{max-width:1200px;margin:0 auto;padding:80px 28px;border-top:1px solid rgba(0,0,0,.06)}
+.section{max-width:1200px;margin:0 auto;padding:40px 28px;border-top:1px solid rgba(0,0,0,.06)}
 .eyebrow{font-family:Archivo,Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;margin:0 0 14px}
 .copy{font-size:1.1rem;line-height:1.6}
 
@@ -69,7 +69,18 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.grid{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
 .media{aspect-ratio:1/1;background:#ddd url('https://placehold.co/800x800?text=Player') center/cover no-repeat}
 .body{padding:16px}
 .role{display:inline-block;font-size:.75rem;border:1px solid var(--ink);padding:6px 10px;border-radius:999px;font-weight:800;margin-bottom:10px}
@@ -81,3 +92,152 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
 .video{width:100%;height:100%}
 
 .footer{padding:50px 28px;color:var(--muted);text-align:center;border-top:1px solid rgba(0,0,0,.06)}
+
+/* PLAYER DETAIL PAGE */
+.playerLayout{
+  display:grid;
+  grid-template-columns:0.9fr 1.1fr;
+  gap:32px;
+  align-items:flex-start;
+}
+@media (max-width:900px){
+  .playerLayout{
+    grid-template-columns:1fr;
+  }
+}
+.playerPhoto{
+  background:var(--card);
+  border-radius:18px;
+  border:1px solid var(--border);
+  padding:16px;
+}
+.playerPhoto-inner{
+  border-radius:14px;
+  overflow:hidden;
+}
+.playerPhoto-inner img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.playerMeta{
+  background:var(--card);
+  border-radius:18px;
+  border:1px solid var(--border);
+  padding:24px;
+}
+.playerMeta .playerName{
+  font-family:Archivo,Inter,sans-serif;
+  font-size:2rem;
+  font-weight:800;
+  margin:0 0 8px;
+}
+.playerMeta .playerRole{
+  display:inline-block;
+  font-size:.8rem;
+  border:1px solid var(--ink);
+  padding:6px 12px;
+  border-radius:999px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+.playerMeta .playerEarnings{
+  font-weight:700;
+  margin-bottom:16px;
+  color:var(--muted);
+}
+.playerMeta .playerTitles{
+  margin:0;
+  padding-left:1.2rem;
+}
+.playerBioBox{
+  background:var(--card);
+  border-radius:18px;
+  border:1px solid var(--border);
+  padding:24px;
+  font-size:1.02rem;
+  line-height:1.7;
+}
+.backLink{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  color:var(--ink);
+  font-size:.9rem;
+  font-weight:600;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.backLink span{
+  font-size:1.1rem;
+}
+.backLink:hover{
+  opacity:0.7;
+}
+/* GEAR & SETTINGS TABLE */
+.gearBox{
+  background:var(--card);
+  border-radius:18px;
+  border:1px solid var(--border);
+  padding:0;
+  overflow:hidden;
+}
+
+.gearTable{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.9rem;
+}
+
+.gearTable-title{
+  background:#7f1116;       /* deep red header bar */
+  color:#fff;
+  text-align:center;
+  padding:10px 8px;
+  font-weight:800;
+  text-transform:lowercase;
+  letter-spacing:0.05em;
+}
+.gearTable-title span{
+  display:block;
+  font-weight:500;
+  font-size:0.85rem;
+}
+
+.gearTable-h{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:6px 8px;
+  font-weight:700;
+  text-transform:lowercase;
+}
+
+.gearTable-cell{
+  background:var(--card);
+  padding:8px 10px;
+  border-top:1px solid #262626;
+  border-right:1px solid #262626;
+  text-align:center;
+}
+.gearTable-cell:last-child{
+  border-right:none;
+}
+
+/* slightly bolder for the mouse name */
+.gearTable-mouse{
+  font-weight:700;
+  text-align:left;
+  padding-left:14px;
+}
+
+.gearTable-footer{
+  background:#7f1116;
+  color:#f7e0b2;
+  text-align:center;
+  padding:6px 10px;
+  font-size:0.85rem;
+  border-top:1px solid #262626;
+}
