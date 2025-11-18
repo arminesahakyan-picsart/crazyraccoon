@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crazy Raccoon — Player Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Archivo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top Nav (links back to main page sections) -->
+  <header class="nav">
+    <a href="index.html#top" class="brand">CRAZY RACCOON</a>
+    <nav class="menu">
+      <a href="index.html#about">About</a>
+      <a href="index.html#stats">Titles</a>
+      <a href="index.html#roster">Roster</a>
+      <a href="index.html#highlights">Highlights</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PLAYER HEADER (unchanged) -->
+    <section class="section">
+      <a class="backLink" href="index.html#roster">
+        <span>←</span> Back to roster
+      </a>
+      <div class="playerLayout">
+        <div class="playerPhoto">
+          <div class="playerPhoto-inner">
+            <img id="playerImage" src="" alt="Player portrait">
+          </div>
+        </div>
+        <div class="playerMeta">
+          <div id="playerRole" class="playerRole">ROLE</div>
+          <h1 id="playerName" class="playerName">Player Name</h1>
+          <div id="playerEarnings" class="playerEarnings">Career Earnings: —</div>
+          <h2 class="eyebrow">Key Titles</h2>
+          <ul id="playerTitles" class="playerTitles"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: GEAR & SETTINGS SECTION -->
+    <section class="section">
+      <h2 class="eyebrow">Gear and Settings</h2>
+      <div id="gearBox" class="gearBox">
+        <table class="gearTable">
+          <thead>
+            <tr>
+              <th colspan="6" class="gearTable-title">
+                mouse settings<br>
+                <span>(Mouse Settings)</span>
+              </th>
+            </tr>
+            <tr>
+              <th class="gearTable-h">mouse</th>
+              <th class="gearTable-h">eDPI</th>
+              <th class="gearTable-h">DPI</th>
+              <th class="gearTable-h">Sensitivity</th>
+              <th class="gearTable-h">aiming sensitivity</th>
+              <th class="gearTable-h">grip method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td id="gearMouse"   class="gearTable-cell gearTable-mouse"></td>
+            <td id="gearEdpi"    class="gearTable-cell"></td>
+            <td id="gearDpi"     class="gearTable-cell"></td>
+            <td id="gearSens"    class="gearTable-cell"></td>
+            <td id="gearAimSens" class="gearTable-cell"></td>
+            <td id="gearGrip"    class="gearTable-cell"></td>
+            </tr>
+            <tr>
+            <td colspan="6" id="gearUpdated" class="gearTable-footer"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- BIO SECTION (content same as before) -->
+    <section class="section">
+      <h2 class="eyebrow">Player Bio</h2>
+      <div id="playerBio" class="playerBioBox">
+        Loading bio...
+      </div>
+    </section>
+
+    <!-- NEW: HIGHLIGHT VIDEO SECTION -->
+    <section class="section">
+    <h2 class="eyebrow">Highlight Video</h2>
+    <div class="videoWrap">
+        <iframe
+        id="playerVideo"
+        class="video"
+        src=""
+        title="Player highlight"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+        </iframe>
+    </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Crazy Raccoon (Fan Site)
+  </footer>
+
+  <script src="player.js"></script>
+</body>
+</html>
