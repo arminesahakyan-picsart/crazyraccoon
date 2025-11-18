@@ -20,13 +20,13 @@ const roster = [
       { title: "Overwatch League 2020", place: "Role Star Damage" }
     ]
   },
-  { name: "HeeSang", role: "DPS", img: "https://i.namu.wiki/i/BN2wFpSozvGwxH3m58jbsC_5Zgrl7msoArwg6de4HaVWUgM8K39SGiaEK1q2okRrfh8d5PKMsHiU2M3NhaVzsFfo5kRRGqcR56_FH7Gdo7sIr6On2mbY2SFOksi2dedgfwwMQGQgYVdVFEis0cY4vQ.webp", earnings: 181509, titles: TEAM_TITLES },
+  { name: "HeeSang", role: "DPS", img: "https://i.namu.wiki/i/cGhreNOSmOh2muXK5U5fekfRJltYuWqsqcqcDFqBLxb3GwQtfvT9pbTm-FwGc8A8Eh7gYbTPnds8puX8NwaXWA.webp", earnings: 181509, titles: TEAM_TITLES },
   { name: "JunBin", role: "Tank", img: "https://i.namu.wiki/i/gAmLuSkYsasUciRpuJaeYNN6bpLyElEAdyea-gBl7uG7XrKRbqczoTyjEEU1CdmscwPFpT_miRh3acEDajMkLA.webp", earnings: 176519, titles: [
       { title: "OWCS 2024 World Finals", place: "2024 Tank MVP" },
       { title: "OWCS 2024 Major", place: "Porsche MVP" }
     ]
   },
-  { name: "MAX", role: "Tank", img: "https://i.namu.wiki/i/xUGd3bUbjdVZ03kqORMxsp5norUPJ2F9bbekbNCkwMXEkIit4_n9RqW2ACtEPUs1BakefXuTYTskjw8sNPWbHGM2zoXwlMnmZ97R7za9y7LHVQXTqjwDKYhFX4uBG78CXcdfWl6ZTgkocR6YGdSU4Q.webp", earnings: 138211.66, titles: TEAM_TITLES },
+  { name: "MAX", role: "Tank", img: "https://i.namu.wiki/i/ngCTbgRMzsw92Ek9-NbfWe1wjWcadU4wDMOd9pbKOpaPKK8Kbg5SZ8gWd3k9n45iPsVorVG1131dA3ZfUPewUQ.webp", earnings: 138211.66, titles: TEAM_TITLES },
   { name: "CH0R0NG", role: "Support", img: "https://i.namu.wiki/i/h-ZLlMt3OzMxKfIvfJwX2JfiJk6aaIa7nSocwlYA492BZEh5hj0GGGVUGZTzjTQsPih4GOAQkdHI6flpZ8lWuA.webp", earnings: 401562, titles: [
       { title: "OWCS 2024 World Finals", place: "2024 Main Support MVP" }
     ]
@@ -43,19 +43,33 @@ const roster = [
 
 // Inject roster cards
 const grid = document.getElementById('rosterGrid');
-grid.innerHTML = roster.map(p => `
-  <article class="card">
-    <div class="media" style="background-image:url('${p.img}');"></div>
-    <div class="body">
-      <div class="role">${p.role}</div>
-      <div class="name">${p.name}</div>
-      <div class="earn">Career Earnings: <strong>$${p.earnings.toLocaleString("en-US")}</strong></div>
-      <ul class="trophy">
-        ${p.titles.slice(0,4).map(t => `<li>${t.title} — <b>${t.place}</b></li>`).join("")}
-      </ul>
-    </div>
-  </article>
-`).join("");
+if (grid) {
+  grid.innerHTML = roster.map(p => `
+    <article class="card" data-name="${p.name}">
+      <div class="media" style="background-image:url('${p.img}');"></div>
+      <div class="body">
+        <div class="role">${p.role}</div>
+        <div class="name">${p.name}</div>
+        <div class="earn">Career Earnings: <strong>$${p.earnings.toLocaleString("en-US")}</strong></div>
+        <ul class="trophy">
+          ${p.titles.slice(0,4).map(t => `<li>${t.title} — <b>${t.place}</b></li>`).join("")}
+        </ul>
+      </div>
+    </article>
+  `).join("");
+
+  // Make each card navigate to the player detail page
+  const cards = grid.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const name = card.getAttribute('data-name');
+      if (name) {
+        const url = `player.html?name=${encodeURIComponent(name)}`;
+        window.location.href = url;
+      }
+    });
+  });
+}
 
 // Compute team winnings (same numbers you had; adjust if you update)
 const teamPrizes = [
